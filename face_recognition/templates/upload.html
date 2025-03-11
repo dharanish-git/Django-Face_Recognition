@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="{% static 'css/styles1.css' %}">
+</head>
+<body class="upload-page">
+    <br/>
+    <br/>
+    <div class="container">
+        <h2>Upload Image for Recognition</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>

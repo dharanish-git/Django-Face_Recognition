@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="{% static 'css/styles1.css' %}">
+</head>
+<body style="background: none !important; background-color: #f2f3f7;">
+
+
+<h2><u>Face Recognition Model With DeepFace</u></h2>
+<div class="result-container">
+    <h2>Recognized Person: {{ name }}</h2>
+
+    <h3>Uploaded Image:</h3>
+    <img src="{{ uploaded_image }}" alt="Uploaded Image" width="200px" onerror="this.style.display='none'">
+
+    {% if recognized_image %}
+        <h3>Matched Image:</h3>
+       <img src="{{ recognized_image }}" alt="Matched Image" width="200px" onerror="this.style.display='none'">
+
+    {% else %}
+        <p>No matching face found.</p>
+    {% endif %}
+
+    <a href="{% url 'upload_image' %}">
+        <br/>
+        <br/>
+
+        <button>Upload Another Image</button>
+    </a>
+</div>
+
+
+
+{% include 'footer.html' %}
+
+</body>
+</html>  
